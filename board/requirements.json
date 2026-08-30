@@ -25,6 +25,7 @@
   "derivation": {
     "method": "BRIEF.md was read and split; no design decision was taken. Every fixed_requirements entry, and every spec-table row sourced from the brief, carries a quotation that was checked by literal substring match against the brief bytes digested above. The build refuses to emit this file if any quotation is not found.",
     "quotations_verified": 27,
+    "where_the_quotations_are": "Every one of them is in this file: fixed_requirements[].brief_evidence and brief_spec_rows[].brief_evidence. The count above is the sum of those two lists, so it is recomputable from this repository alone - re-read BRIEF.md and check each string is a substring of it. brief_spec_rows carries the quotations behind the README's spec table, which would otherwise cite the brief with the evidence left in a build script.",
     "review": "two rounds of adversarial review against the brief, looking for invented requirements, lost requirements, evidence supporting a weaker claim than the one made beside it, and worksheet questions that presuppose their own answer"
   },
   "fixed_requirements": [
@@ -107,6 +108,63 @@
       "id": "REQ-16",
       "requirement": "This repository stays a consumer of the shared PCBA_AutoDesignAndTest toolkit; board-specific logic does not accumulate in the toolkit.",
       "brief_evidence": "The repository should remain a consumer of the shared `PCBA_AutoDesignAndTest` toolkit rather than accumulating board-specific logic in the toolkit."
+    }
+  ],
+  "brief_spec_rows": [
+    {
+      "aspect": "Board form factor",
+      "value": "Rigid circular PCB mounted concentrically around a motor shaft",
+      "brief_evidence": "Design a rigid circular PCB that mounts concentrically around a motor shaft"
+    },
+    {
+      "aspect": "Function",
+      "value": "Measures rotor position",
+      "brief_evidence": "measures rotor position using 12 evenly spaced magnetic or optical sensors."
+    },
+    {
+      "aspect": "Outer diameter",
+      "value": "About 90 mm",
+      "brief_evidence": "Outer diameter about 90 mm; central mechanical keep-out diameter at least 40 mm."
+    },
+    {
+      "aspect": "Central mechanical keep-out",
+      "value": "At least 40 mm diameter",
+      "brief_evidence": "Outer diameter about 90 mm; central mechanical keep-out diameter at least 40 mm."
+    },
+    {
+      "aspect": "Central opening/cutout content",
+      "value": "Free of copper and components as required",
+      "brief_evidence": "Place connectors on the outer perimeter and keep the central opening/cutout free of copper and components as required."
+    },
+    {
+      "aspect": "Sensor count and technology family",
+      "value": "12 evenly spaced sensors, magnetic or optical",
+      "brief_evidence": "measures rotor position using 12 evenly spaced magnetic or optical sensors."
+    },
+    {
+      "aspect": "Sensor placement discipline",
+      "value": "All sensing elements on a precise common radius, with orientations appropriate to the sensing technology",
+      "brief_evidence": "All sensing elements must be positioned on a precise common radius with orientations appropriate to the sensing technology."
+    },
+    {
+      "aspect": "Controller",
+      "value": "A small MCU that collects the sensors",
+      "brief_evidence": "A small MCU collects the sensors and reports position over CAN or differential serial."
+    },
+    {
+      "aspect": "Host reporting interface",
+      "value": "CAN or differential serial",
+      "brief_evidence": "A small MCU collects the sensors and reports position over CAN or differential serial."
+    },
+    {
+      "aspect": "Power input",
+      "value": "12 V, with local regulation on the board",
+      "brief_evidence": "Power input is 12 V with local regulation."
+    },
+    {
+      "aspect": "Connector placement",
+      "value": "On the outer perimeter",
+      "brief_evidence": "Place connectors on the outer perimeter and keep the central opening/cutout free of copper and components as required."
     }
   ],
   "open_decisions": [
